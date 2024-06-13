@@ -1,0 +1,44 @@
+.toc {
+    position: sticky;
+    top: 6rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    border-left: 2px solid #b1aeae;
+    padding-left: 1rem;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc li {
+    margin-bottom: 0.25rem;
+}
+
+.toc a {
+    text-decoration: none;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
+
+.toc-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.toc-level-2 {
+    margin-left: .5rem;
+}
+
+.toc-level-3 {
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .toc {
+        display: none;
+    }
+}

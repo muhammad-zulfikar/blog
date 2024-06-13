@@ -1,0 +1,48 @@
+{
+	"name": "zulfikar.blog",
+	"version": "2.0",
+	"repository": "git@github.com:muhammad-zulfikar/blog.git",
+	"private": true,
+	"packageManager": "bun@1.0.0",
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"clsx": "^2.0.0",
+		"common-tags": "^1.8.2",
+		"cookie": "^0.5.0",
+		"dayjs": "^1.11.10",
+		"envsafe": "^2.0.3",
+		"jsonwebtoken": "^9.0.2",
+		"next": "^14.0.4",
+		"nextkit": "^3.4.3",
+		"next-themes": "^0.3.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.11.0",
+		"react-syntax-highlighter": "^15.5.0",
+		"sharp": "^0.32.6",
+		"urlcat": "^3.1.0"
+	},
+	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.10",
+		"@types/common-tags": "^1.8.3",
+		"@types/cookie": "^0.5.3",
+		"@types/jsonwebtoken": "^9.0.4",
+		"@types/react": "^18.2.29",
+		"@types/react-syntax-highlighter": "^15.5.9",
+		"@types/sharp": "^0",
+		"@types/tailwindcss": "^3.0.11",
+		"autoprefixer": "^10.4.16",
+		"eslint": "8.56.0",
+		"eslint-config-next": "14.0.4",
+		"postcss": "^8.4.33",
+		"prettier": "^3.2.2",
+		"prettier-plugin-tailwindcss": "^0.5.11",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5.3.3"
+	}
+}
