@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { FiMenu, FiSun, FiMoon } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function useClickOutside(ref: React.RefObject<HTMLDivElement>, buttonRef: React.RefObject<HTMLButtonElement>, onClickOutside: () => void) {
     useEffect(() => {
@@ -22,6 +22,7 @@ export default function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const navRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const router = useRouter();
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
@@ -31,6 +32,11 @@ export default function Navbar() {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
 
+    const handleRedirect = (path: string) => {
+        router.push(path);
+        setIsNavOpen(false);
+    };
+
     useClickOutside(navRef, buttonRef, () => setIsNavOpen(false));
 
     return (
@@ -38,41 +44,36 @@ export default function Navbar() {
             <div className="flex justify-between items-center p-4 bg-transparent">
                 <button
                     ref={buttonRef}
-                    className="px-4 py-2 ml-2 md:mt-6 md:ml-6 rounded-lg custom-card"
+                    className="px-4 py-2 ml-2 mt-2 md:mt-4 md:ml-4 rounded-lg custom-card"
                     onClick={toggleNav}
                 >
-                    <FiMenu className="w-6 h-6" />
+                    <FiMenu className="w-5 h-auto" />
                 </button>
                 <button
-                    className={`px-4 py-2 mr-2 md:mt-6 md:mr-6 rounded-lg custom-card ${isNavOpen && 'z-10'}`}
+                    className={`px-4 py-2 mr-2 mt-2 md:mt-4 md:mr-4 rounded-lg custom-card ${isNavOpen && 'z-10'}`}
                     onClick={toggleTheme}
                 >
-                    {theme === 'dark' ? <FiSun className="w-6 h-6" /> : <FiMoon className="w-6 h-6" />}
+                    {theme === 'dark' ? <FiSun className="w-5 h-auto" /> : <FiMoon className="w-5 h-auto" />}
                 </button>
             </div>
             {isNavOpen && (
                 <div ref={navRef} className="absolute left-6 md:left-10 w-48 rounded-md">
                     <div className='text-black dark:text-white rounded-xl focus:outline-none custom-card'>
                         <ul>
-                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl">
-                                <Link href="/">
-                                    <a>/</a>
-                                </Link>
+                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl" onClick={() => handleRedirect('/')}>
+                                /
                             </li>
-                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl">
-                                <Link href="/projects">
-                                    <a>/projects</a>
-                                </Link>
+                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl" onClick={() => handleRedirect('/projects')}>
+                                /projects
                             </li>
-                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl">
-                                <Link href="/blog">
-                                    <a>/blog</a>
-                                </Link>
+                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl" onClick={() => handleRedirect('/blog')}>
+                                /blog
                             </li>
-                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl">
-                                <Link href="/stats">
-                                    <a>/stats</a>
-                                </Link>
+                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl" onClick={() => handleRedirect('/contact')}>
+                                /contact
+                            </li>
+                            <li className="py-2 px-4 hover:underline cursor-pointer rounded-xl" onClick={() => handleRedirect('/stats')}>
+                                /stats
                             </li>
                         </ul>
                     </div>

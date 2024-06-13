@@ -1,6 +1,7 @@
 import 'tailwindcss/tailwind.css';
-import './styles/main.css';
-import './styles/toc.css'
+import '../styles/main.css';
+import '../styles/toc.css';
+import '../styles/blog.css';
 
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
